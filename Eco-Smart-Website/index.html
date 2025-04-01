@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoSmart Water Bottle Landing Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Hero Section -->
+  <section id="home">  <!--  id="home" -->
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+    <!-- Header with Sticky Navbar -->
+    <header id="navbar">
+      <a href="#"><img src="Ecosmart_logo.jpeg" class="logo" alt="EcoSmart Logo"></a>
+      <nav>
+          <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#features">Features</a></li>
+              <li><a href="#pricing">Pricing</a></li>
+              <li><a href="#contact">Contact Us</a></li>
+          </ul>
+      </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <div class="content">
+      <div class="textBox">
+        <h2>It's not just a Water Bottle <br>It's <span>EcoSmart</span></h2>
+        <p>EcoSmart Water Bottle – Designed for sustainability, this bottle is made from BPA-free, reusable materials to reduce plastic waste. Its insulated design keeps drinks hot or cold for hours, making it perfect for any lifestyle. Choose EcoSmart and make every sip a step toward a greener future! 🌍💧♻️</p>
+        <a href="#features">Learn more</a>
+      </div>
+      
+      <!-- Product Image & Buy Now Button -->
+      <div class="imgBox">
+        <img src="Img1.png" class="ecosmart" alt="EcoSmart Bottle">
+        <button id="buyNowBtn">Buy Now</button>
+      </div>
+    </div>
+    
+    <!-- Thumbnail Selector -->
+    <ul class="thumb">
+      <li><img src="thumb1.png" onclick="imgSlider('Img1.png'); changeCircleColor('#017143')"></li>
+      <li><img src="thumb2.jpg" onclick="imgSlider('Img2.png'); changeCircleColor('#D32F2F')"></li>
+      <li><img src="thumb3.png" onclick="imgSlider('Img3.png'); changeCircleColor('#FBC02D')"></li>
+      <li><img src="thumb4.png" onclick="imgSlider('Img4.png'); changeCircleColor('#757575')"></li>
+      <li><img src="thumb5.png" onclick="imgSlider('Img5.png'); changeCircleColor('#FFFFFF')"></li> 
+    </ul>
+    
+    <!-- Social Media Icons -->
+    <ul class="sci">
+      <li><a href="#"><img src="Facebook-_resized_2.png" alt="Facebook"></a></li>
+      <li><a href="#"><img src="Twitter.png" alt="Twitter"></a></li>
+      <li><a href="#"><img src="instagram.png" alt="Instagram"></a></li>
+    </ul>
+  </section>
+
+  <!-- Modal for Color Selection -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Select Your Bottle Color</h2>
+      <label for="modalColor">Choose Color:</label>
+      <select id="modalColor">
+          <option value="green">Green (R700)</option>
+          <option value="red">Red (R710)</option>
+          <option value="yellow">Yellow (R705)</option>
+          <option value="grey">Grey (R715)</option>
+          <option value="white">White (R720)</option>
+      </select>
+      <p>Total Price: <span id="modalPrice">R700</span></p>
+      <button id="confirmPurchase">Confirm Purchase</button>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <h2>Product Features</h2>
+    <div class="features-grid">
+      <div class="feature">
+        <h3>Eco-Friendly Materials</h3>
+        <p>Made from 100% BPA-free, recyclable materials to reduce environmental impact.</p>
+      </div>
+      <div class="feature">
+        <h3>24-Hour Temperature Control</h3>
+        <p>Keeps drinks hot for 12 hours and cold for 24 hours.</p>
+      </div>
+      <div class="feature">
+        <h3>Leak-Proof Design</h3>
+        <p>Patented lock mechanism prevents spills.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Calculator -->
+  <section id="pricing" class="pricing">
+    <h2>Customize Your Product</h2>
+    <div class="calculator">
+      <div class="calculator-options">
+        <label for="color">Select Color:</label>
+        <select id="color" name="color">
+          <option value="green">Green (+R0)</option>
+          <option value="red">Red (+R10)</option>
+          <option value="yellow">Yellow (+R5)</option>
+          <option value="grey">Grey (+R15)</option>
+          <option value="white">White (+R20)</option>
+        </select>
+
+        <label>
+          <input type="checkbox" id="engraving"> Custom Engraving (+R15)
+        </label>
+
+        <label>
+          <input type="checkbox" id="packaging"> Premium Packaging (+R8)
+        </label>
+      </div>
+      <div class="calculator-result">
+        <h3>Total Price:</h3>
+        <p id="totalPrice">R700.00</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer with Contact Form -->
+  <footer id="contact">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Message" required></textarea>
+      <label>
+        <input type="checkbox" required> I agree to the Terms and Conditions
+      </label>
+      <button type="submit">Send</button>
+    </form>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Image Slider Functionality
+    function imgSlider(anything) {
+      document.querySelector('.ecosmart').src = anything;
+    }
+  
+    // Change Circle Background Color
+    function changeCircleColor(color) {
+      const circle = document.querySelector('.circle');
+      circle.style.background = color;
+    }
+
+    // Modal Functionality
+    const modal = document.getElementById("modal");
+    const btn = document.getElementById("buyNowBtn");
+    const span = document.getElementsByClassName("close")[0];
+    const confirmPurchase = document.getElementById("confirmPurchase");
+
+    // Open Modal
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+
+    // Close Modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // Close Modal When Clicking Outside
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    // Modal Price Update Based on Color Selection
+    document.getElementById('modalColor').addEventListener('change', function() {
+      const prices = { green: 700, red: 710, yellow: 705, grey: 715, white: 720 };
+      document.getElementById('modalPrice').textContent = 'R' + prices[this.value];
+    });
+
+    // Confirm Purchase Button
+    confirmPurchase.onclick = function() {
+      const selectedColor = document.getElementById('modalColor').value;
+      alert(`Purchase Confirmed! Your ${selectedColor} bottle will be shipped soon.`);
+      modal.style.display = "none";
+    }
+
+    // Dynamic Pricing Calculator
+    function updatePrice() {
+      const colorPrices = { green: 0, red: 10, yellow: 5, grey: 15, white: 20 };
+      const engravingPrice = document.getElementById('engraving').checked ? 15 : 0;
+      const packagingPrice = document.getElementById('packaging').checked ? 8 : 0;
+      const total = 700 + colorPrices[document.getElementById('color').value] + engravingPrice + packagingPrice;
+      document.getElementById('totalPrice').textContent = 'R' + total.toFixed(2);
+    }
+
+    // Event Listeners for Price Updates
+    document.querySelectorAll('#color, #engraving, #packaging').forEach(el => {
+      el.addEventListener('change', updatePrice);
+    });
+
+    // Sticky Navbar on Scroll
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+      } else {
+        navbar.style.background = 'transparent';
+        navbar.style.boxShadow = 'none';
+      }
+    });
+  </script>
+  </section>
+</body>
+</html>

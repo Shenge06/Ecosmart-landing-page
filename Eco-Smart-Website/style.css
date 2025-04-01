@@ -1,0 +1,418 @@
+/*  smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Sticky Navbar */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+header .logo {
+  max-width: 80px;
+}
+
+header ul {
+  display: flex;
+}
+
+header ul li {
+  list-style: none;
+}
+
+header ul li a {
+  display: inline-block;
+  color: #333;
+  font-weight: 400;
+  margin-left: 40px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+header ul li a:hover {
+  color: white;
+  background-color: #333;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* Hero Section */
+section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+}
+
+.circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #017143;
+  clip-path: circle(800px at right 400px);
+}
+
+.content {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content .textBox {
+  max-width: 600px;
+}
+
+.content .textBox h2 {
+  color: #333;
+  font-size: 4em;
+  line-height: 1.4em;
+  font-weight: 500;
+}
+
+.content .textBox h2 span {
+  color: #017143;
+  font-size: 1.2em;
+  font-weight: 900;
+}
+
+.content .textBox p {
+  color: #333;
+  margin: 20px 0;
+}
+
+.content .textBox a {
+  display: inline-block;
+  padding: 8px 20px;
+  background: #017143;
+  color: #fff;
+  border-radius: 40px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.content .textBox a:hover {
+  background: black;
+}
+
+.content .imgBox {
+  width: 600px;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content .imgBox img {
+  max-width: 340px;
+  transition: transform 0.3s;
+}
+
+.content .imgBox img:hover {
+  transform: scale(1.1);
+}
+
+/* Buy Now Button */
+#buyNowBtn {
+  margin-top: 20px;
+  padding: 10px 30px;
+  background: #017143;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#buyNowBtn:hover {
+  background: black;
+}
+
+/* Thumbnail Selector */
+.thumb {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.thumb li {
+  list-style: none;
+  margin: 0 20px;
+  cursor: pointer;
+}
+
+.thumb li img {
+  max-width: 60px;
+  transition: transform 0.3s;
+}
+
+.thumb li:hover img {
+  transform: translateY(-15px);
+}
+
+/* Social Icons */
+.sci {
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+}
+
+.sci li {
+  list-style: none;
+  margin: 5px 0;
+}
+
+.sci li a img {
+  width: 30px;
+  filter: invert(1);
+  transition: transform 0.3s;
+}
+
+.sci li a img:hover {
+  transform: scale(1.2);
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background: white;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 5px;
+  width: 80%;
+  max-width: 400px;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #017143;
+}
+
+/* Features Section */
+.features {
+  padding: 80px 100px;
+  background: #f9f9f9;
+}
+
+.features h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.5em;
+}
+
+.features-grid {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.feature {
+  flex: 1;
+  min-width: 250px;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.feature h3 {
+  color: #017143;
+  margin-bottom: 10px;
+}
+
+/* Pricing Calculator */
+.pricing {
+  padding: 80px 100px;
+}
+
+.pricing h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.5em;
+}
+
+.calculator {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.calculator-options {
+  flex: 1;
+  min-width: 250px;
+}
+
+.calculator-options label {
+  display: block;
+  margin: 15px 0 5px;
+}
+
+.calculator-options select, 
+.calculator-options input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.calculator-result {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator-result h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.calculator-result p {
+  font-size: 2em;
+  color: #017143;
+  font-weight: bold;
+}
+
+/* Footer & Contact Form */
+footer {
+  background: #333;
+  color: white;
+  padding: 80px 100px;
+  text-align: center;
+}
+
+footer h2 {
+  margin-bottom: 40px;
+  font-size: 2.5em;
+}
+
+footer form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+footer input,
+footer textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+}
+
+footer textarea {
+  height: 150px;
+}
+
+footer button {
+  background: #017143;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+footer button:hover {
+  background: black;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+  header {
+    padding: 20px;
+  }
+
+  section {
+    padding: 100px 20px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .content {
+    flex-direction: column;
+  }
+
+  .imgBox {
+    margin-top: 40px;
+  }
+
+  .thumb {
+    position: relative;
+    bottom: auto;
+    margin-top: 40px;
+  }
+
+  .sci {
+    position: relative;
+    top: auto;
+    right: auto;
+    transform: none;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .features-grid,
+  .calculator {
+    flex-direction: column;
+  }
+}
